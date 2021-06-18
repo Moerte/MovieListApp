@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    var movies = ["Eu sou a Lenda","Senhor do Aneis", "Matrix"]
+//    var movies = ["Eu sou a Lenda","Senhor do Aneis", "Matrix"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +30,14 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return movies.count
+        return MovieData.movie.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        cell.textLabel!.text = movies[indexPath.row]
+        cell.textLabel!.text = MovieData.movie[indexPath.row].name
         // Configure the cell...
 
         return cell

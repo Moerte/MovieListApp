@@ -4,9 +4,9 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -155,37 +155,70 @@
                     </tabBar>
                     <connections>
                         <segue destination="uS7-iK-dVi" kind="relationship" relationship="viewControllers" id="LPX-wF-zfz"/>
-                        <segue destination="IEp-28-1Qd" kind="relationship" relationship="viewControllers" id="pUE-Pd-bhA"/>
+                        <segue destination="8yA-aE-6oH" kind="relationship" relationship="viewControllers" id="dbk-0R-kJd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VjV-ET-Q3S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="798.55072463768124" y="71.651785714285708"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="aSn-CU-hZa">
+        <!--Collection View Controller-->
+        <scene sceneID="ys7-vw-F30">
             <objects>
-                <viewController id="IEp-28-1Qd" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Je7-ZH-DHf">
+                <collectionViewController id="8yA-aE-6oH" customClass="CollectionViewController" customModule="Movies_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="nov-fm-0g2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="KvX-MZ-lEH"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="aag-d8-aVV">
-                        <color key="badgeColor" name="AccentColor"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ekb-b2-03v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="l8N-T8-hlh">
+                            <size key="itemSize" width="151" height="189"/>
+                            <size key="estimatedItemSize" width="151" height="189"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellFavorites" id="1NM-ex-Czr" customClass="CollectionViewCell" customModule="Movies_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="151" height="189"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HFQ-PW-bZc">
+                                    <rect key="frame" x="0.0" y="0.0" width="151" height="189"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3R-iJ-k88">
+                                            <rect key="frame" x="0.0" y="154" width="151" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" systemColor="systemBlueColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZA-bv-ay5">
+                                            <rect key="frame" x="0.0" y="8" width="151" height="144"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="151" height="189"/>
+                                <connections>
+                                    <outlet property="imageViewFav" destination="AZA-bv-ay5" id="ryV-Lo-oJx"/>
+                                    <outlet property="lblTitleFav" destination="p3R-iJ-k88" id="GO2-FT-pAo"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="8yA-aE-6oH" id="aKb-pG-cph"/>
+                            <outlet property="delegate" destination="8yA-aE-6oH" id="DzI-uI-6ne"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="SwB-Ny-O7I"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XQL-nB-r8M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799" y="870"/>
+            <point key="canvasLocation" x="797.60000000000002" y="816.34182908545733"/>
         </scene>
     </scenes>
     <resources>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

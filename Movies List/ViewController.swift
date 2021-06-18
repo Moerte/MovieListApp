@@ -21,9 +21,9 @@ class ViewController: UIViewController {
 
     func createMovies(){
         
-        let movieOne = Movies(name: "O Senhor dos aneis", imgName: "senhordosaneis", isFav: true);
+        let movieOne = Movies(name: "O Senhor dos aneis", imgName: "senhoraneis", isFav: true);
         let movieTwo = Movies(name: "Eu sou a Lenda", imgName: "eusoualenda", isFav: true);
-        let movieThree = Movies(name: "Matrix", imgName: "matrix", isFav: true);
+        let movieThree = Movies(name: "Matrix", imgName: "matrix", isFav: false);
         
         MovieData.movie.append(movieOne)
         MovieData.movie.append(movieTwo)
@@ -34,6 +34,8 @@ class ViewController: UIViewController {
     @IBAction func loginAction(_ sender: Any) {
         
         if(txtLogin.text == "Nuno" && txtPassword.text == "1234"){
+            MovieData.movie.removeAll()
+            createMovies()
             performSegue(withIdentifier: "ScreenTwo", sender: self)
         }else{
             
