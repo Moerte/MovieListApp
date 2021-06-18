@@ -19,6 +19,18 @@ class ViewController: UIViewController {
     }
 
 
+    func createMovies(){
+        
+        let movieOne = Movies(name: "O Senhor dos aneis", imgName: "senhordosaneis", isFav: true);
+        let movieTwo = Movies(name: "Eu sou a Lenda", imgName: "eusoualenda", isFav: true);
+        let movieThree = Movies(name: "Matrix", imgName: "matrix", isFav: true);
+        
+        MovieData.movie.append(movieOne)
+        MovieData.movie.append(movieTwo)
+        MovieData.movie.append(movieThree)
+       
+        
+    }
     @IBAction func loginAction(_ sender: Any) {
         
         if(txtLogin.text == "Nuno" && txtPassword.text == "1234"){
