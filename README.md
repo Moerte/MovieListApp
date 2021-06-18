@@ -2,4 +2,6 @@
 
 iOS second app
 
-On working
+Finished!!
+
+Just an app to learn how to create iOS Apps with XCode!
